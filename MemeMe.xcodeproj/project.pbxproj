@@ -13,7 +13,6 @@
 		538F01AC1C7E2D1C008939E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538F01AB1C7E2D1C008939E0 /* Assets.xcassets */; };
 		538F01AF1C7E2D1C008939E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538F01AD1C7E2D1C008939E0 /* LaunchScreen.storyboard */; };
 		538F01BA1C7E2D1D008939E0 /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F01B91C7E2D1D008939E0 /* MemeMeTests.swift */; };
-		538F01C51C810371008939E0 /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538F01C41C810371008939E0 /* TODO.swift */; };
 		53BBCF3A1C8137B000DBDE3A /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BBCF391C8137B000DBDE3A /* Meme.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		538F01B51C7E2D1D008939E0 /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		538F01B91C7E2D1D008939E0 /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
 		538F01BB1C7E2D1D008939E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		538F01C41C810371008939E0 /* TODO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
 		53BBCF391C8137B000DBDE3A /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +82,6 @@
 				538F01A41C7E2D1C008939E0 /* AppDelegate.swift */,
 				538F01A61C7E2D1C008939E0 /* ViewController.swift */,
 				53BBCF391C8137B000DBDE3A /* Meme.swift */,
-				538F01C41C810371008939E0 /* TODO.swift */,
 				538F01A81C7E2D1C008939E0 /* Main.storyboard */,
 				538F01AB1C7E2D1C008939E0 /* Assets.xcassets */,
 				538F01AD1C7E2D1C008939E0 /* LaunchScreen.storyboard */,
@@ -208,7 +205,6 @@
 				538F01A71C7E2D1C008939E0 /* ViewController.swift in Sources */,
 				53BBCF3A1C8137B000DBDE3A /* Meme.swift in Sources */,
 				538F01A51C7E2D1C008939E0 /* AppDelegate.swift in Sources */,
-				538F01C51C810371008939E0 /* TODO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

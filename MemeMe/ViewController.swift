@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     // property observer on imageView
     @IBOutlet weak var imageView: UIImageView!
@@ -27,7 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 3.0,
+        
+        // strokeWidth must be negative in order to fill text
+        NSStrokeWidthAttributeName : -3.0,
     
     ]
     
@@ -266,7 +268,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // meme.image is the 'before' pic (original image), and meme.memedImage is the 'after' pic (original image with text overlay as a snapshot)
     func save(){
         let memedImage = generateMemedImage()
-        let meme = Meme(text: topTextField.text!, image: imageView.image, memedImage: memedImage)
+        _ = Meme(text: topTextField.text!, image: imageView.image, memedImage: memedImage)
         
     }
     
