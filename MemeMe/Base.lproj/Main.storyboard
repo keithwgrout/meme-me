@@ -41,7 +41,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="RIg-JH-8jT">
                                             <connections>
-                                                <action selector="returnToDefaultState:" destination="BYZ-38-t0r" id="Oep-jM-30e"/>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="eaQ-pC-EJa"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -63,13 +63,13 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Luc-ch-zOO"/>
                                     <barButtonItem systemItem="camera" id="UMn-7M-U9l">
                                         <connections>
-                                            <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="luz-r4-loT"/>
+                                            <action selector="pickImageFromSource:" destination="BYZ-38-t0r" id="mU2-wo-Xxq"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mLr-Xg-hfr"/>
                                     <barButtonItem title="Album" id="5sS-8w-ZlP">
                                         <connections>
-                                            <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="IOJ-Jn-VCS"/>
+                                            <action selector="pickImageFromSource:" destination="BYZ-38-t0r" id="v4F-cj-vJg"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3Tc-pE-hHh"/>

@@ -25,10 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var topTextHasChanged = false
     var bottomTextHasChanged = false
     
-
     
     // Overrides
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         shareButton.enabled = false
@@ -38,58 +36,40 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // set this VC as the delegate for my TextFields
         setTextFieldDelegates()
-        
     }
-    
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        // enable camera if available
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        
         self.subscribeToKeyboardNotifications()
-
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // Actions
     
-    @IBAction func returnToDefaultState(sender: AnyObject) {
-        imageView.image = nil
-        topTextField.text = "Top"
-        bottomTextField.text = "Bottom"
-        topTextHasChanged = false
-        bottomTextHasChanged = false
-    }
-    @IBAction func pickImageFromAlbum(sender: AnyObject) {
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
-        
+    @IBAction func cancel(sender: AnyObject) {
+        restoreDefaultState()
     }
     
-    @IBAction func pickImageFromCamera(sender: AnyObject) {
+    @IBAction func pickImageFromSource(sender: AnyObject){
+        
+        let sourceType: UIImagePickerControllerSourceType!
+        
+        if sender as! NSObject == cameraButton {
+            sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        
+        imagePicker.sourceType = sourceType
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
@@ -99,12 +79,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // generate a meme
         memeImage = generateMemedImage()
         
-        // get an instance of the activity view controller
-        // and pass a memed image to the activity VC 
-        // as an activity item
+        // pass a memed image to the activity VC as an activity item
         let activityController = UIActivityViewController(activityItems: [memeImage!], applicationActivities: nil)
-        
-        // present the activity vc
         presentViewController(activityController, animated: true, completion: nil)
         
         // save the meme upon completion
@@ -119,16 +95,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
-    
-    
-    
-    
-    
+
     // Delegate Methods
     
     
-    // imagePickerController Delegate (choosing the image, and setting the imageView)
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -140,22 +110,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-
-    
     
     // clear the default text when user taps the textField
     func textFieldDidBeginEditing(textField: UITextField) {
-        
-        
-        // should only clear the default text, not the user input
-        if textField == topTextField && topTextHasChanged == false {
-            textField.text = ""
-            topTextHasChanged = true
-        } else if textField == bottomTextField && bottomTextHasChanged == false {
-            textField.text = ""
-            bottomTextHasChanged = true
-        }
-        
+        clearDefaultText(textField)
     }
     
     // dismiss keyboard when return is pressed
@@ -163,26 +121,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.resignFirstResponder()
         return true
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // Move the view when the keyboard is showing
     
     // moves the entire frame up by the height of the keyboard
     func keyboardWillShow(notification: NSNotification) {
@@ -234,29 +172,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
+   
+    // Meme functions
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // Meme Stuff
-    
-    // Meme() is a struct I created in Meme.swift
-    
-    // meme.image is the 'before' pic (original image), and meme.memedImage is the 'after' pic (original image with text overlay as a snapshot)
     func save(){
         _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image, memedImage: memeImage)
-        
     }
     
     // returns a snapshot of the screen to make the meme
@@ -293,7 +213,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // helper methods
     
-    
     func setTextFieldDelegates(){
         topTextField.delegate = self
         bottomTextField.delegate = self
@@ -319,12 +238,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // center text
         topTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.textAlignment = NSTextAlignment.Center
-        
     }
     
+    func clearDefaultText(textField:UITextField) {
+        if textField == topTextField && topTextHasChanged == false {
+            textField.text = ""
+            topTextHasChanged = true
+        } else if textField == bottomTextField && bottomTextHasChanged == false {
+            textField.text = ""
+            bottomTextHasChanged = true
+        }
+    }
     
-    
-    
+    func restoreDefaultState(){
+        imageView.image = nil
+        topTextField.text = "Top"
+        bottomTextField.text = "Bottom"
+        topTextHasChanged = false
+        bottomTextHasChanged = false
+    }
     
     
     
