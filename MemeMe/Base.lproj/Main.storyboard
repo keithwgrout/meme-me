@@ -64,7 +64,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="OHs-kM-cja" firstAttribute="top" secondItem="faY-Ft-RCF" secondAttribute="bottom" constant="40" id="3td-Q0-q9x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OHs-kM-cja" secondAttribute="trailing" constant="-20" id="An0-QU-jmx"/>
