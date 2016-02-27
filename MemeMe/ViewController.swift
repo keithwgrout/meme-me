@@ -14,35 +14,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
-    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
-    
-    // property observer on imageView
     @IBOutlet weak var imageView: UIImageView!
+    
     var memeImage:UIImage?
     
     var topTextHasChanged = false
     var bottomTextHasChanged = false
     
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        
-        // strokeWidth must be negative in order to fill text
-        NSStrokeWidthAttributeName : -3.0,
-    
-    ]
-    
-    
-    
-    
-    
-    
-    
+
     
     // Overrides
     
@@ -51,21 +34,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.enabled = false
         
         // set the text attributes of the text fields
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
+        setTextFieldAttributes()
         
         // set this VC as the delegate for my TextFields
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        
-        // set initial text
-        topTextField.text = "Top"
-        bottomTextField.text = "Bottom"
-        
-        // center text
-        topTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        
+        setTextFieldDelegates()
         
     }
     
@@ -83,6 +55,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.unsubscribeFromKeyboardNotifications()
     }
 
+    
     
     
     
@@ -318,10 +291,36 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     
     
+    // helper methods
     
     
+    func setTextFieldDelegates(){
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+    }
     
-    
+    func setTextFieldAttributes (){
+        let memeTextAttributes = [
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            
+            // strokeWidth must be negative in order to fill text
+            NSStrokeWidthAttributeName : -3.0,
+        ]
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
+        // set initial text
+        topTextField.text = "Top"
+        bottomTextField.text = "Bottom"
+        
+        // center text
+        topTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.textAlignment = NSTextAlignment.Center
+        
+    }
     
     
     
