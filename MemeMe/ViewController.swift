@@ -18,17 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIButton!
     
     // property observer on imageView
-    @IBOutlet weak var imageView: UIImageView! {
-        didSet {
-            print("didSet is called as soon as I start the app for some reason.")
-            print("but if it was set, why is imageView.image nil?")
-            print("image = \(imageView.image)")
-            if let _ = imageView.image {
-                print("But I can't get here!")
-                shareButton?.enabled = true
-            }
-        }
-    }
+    @IBOutlet weak var imageView: UIImageView!
     
     var topTextHasChanged = false
     var bottomTextHasChanged = false
@@ -117,6 +107,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    // sharing the meme with the activity view controller
     @IBAction func shareMeme(sender: UIButton) {
         
         // generate a meme
@@ -155,10 +146,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // imagePickerController Delegate (choosing the image, and setting the imageView)
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        imageView.image = image
-        
-        print(imageView.image)
+        imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        shareButton.enabled = true
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -279,7 +268,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage = generateMemedImage()
         let meme = Meme(text: topTextField.text!, image: imageView.image, memedImage: memedImage)
         
-        imageView.image = meme.memedImage // to test that the meme is being saved correctly
     }
     
     // returns a snapshot of the screen to make the meme
