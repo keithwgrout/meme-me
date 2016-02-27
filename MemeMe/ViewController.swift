@@ -12,6 +12,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     // Properties
     
+    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var toolBar: UIToolbar!
+    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -19,6 +22,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // property observer on imageView
     @IBOutlet weak var imageView: UIImageView!
+    var memeImage:UIImage?
     
     var topTextHasChanged = false
     var bottomTextHasChanged = false
@@ -110,16 +114,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     // sharing the meme with the activity view controller
-    @IBAction func shareMeme(sender: UIButton) {
+    @IBAction func shareMeme(sender: UIBarButtonItem) {
         
         // generate a meme
-        let memedImage = generateMemedImage()
-        imageView.image = memedImage
+        memeImage = generateMemedImage()
         
         // get an instance of the activity view controller
         // and pass a memed image to the activity VC 
         // as an activity item
-        let activityController = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: nil)
+        let activityController = UIActivityViewController(activityItems: [memeImage!], applicationActivities: nil)
         
         // present the activity vc
         presentViewController(activityController, animated: true, completion: nil)
@@ -203,12 +206,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // moves the entire frame up by the height of the keyboard
     func keyboardWillShow(notification: NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     // moves the entire frame down by the height of the keyboard
     func keyboardWillHide(notification: NSNotification){
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+
+        }
     }
     
     
@@ -267,8 +275,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // meme.image is the 'before' pic (original image), and meme.memedImage is the 'after' pic (original image with text overlay as a snapshot)
     func save(){
-        let memedImage = generateMemedImage()
-        _ = Meme(text: topTextField.text!, image: imageView.image, memedImage: memedImage)
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image, memedImage: memeImage)
         
     }
     
@@ -276,7 +283,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func generateMemedImage() -> UIImage {
         
         
-    // TODO: Hide the toolbar and navbar
+        // Hide the toolbar and navbar before our photo shoot
+        navBar.hidden = true
+        toolBar.hidden = true
         
         // render view to an image
         
@@ -292,8 +301,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // end the "image context"
         UIGraphicsEndImageContext()
         
-    // TODO: Show the toolbar and navbar
-        
+        // Show the toolbar and navbar
+        navBar.hidden = false
+        toolBar.hidden = false
         return memedImage
     }
     

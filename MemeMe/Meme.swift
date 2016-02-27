@@ -15,9 +15,9 @@ struct Meme {
     var image: UIImage!
     var memedImage: UIImage!
     
-    init(text: String, image: UIImage!, memedImage: UIImage!){
-        topText = text
-        bottomText = text
+    init(topText: String, bottomText: String, image: UIImage!, memedImage: UIImage!){
+        self.topText = topText
+        self.bottomText = bottomText
         self.image = image
         self.memedImage = memedImage
         print("beep bloop")
