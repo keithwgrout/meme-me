@@ -39,7 +39,11 @@
                                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="fu6-Nw-uHY"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="RIg-JH-8jT"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="RIg-JH-8jT">
+                                            <connections>
+                                                <action selector="returnToDefaultState:" destination="BYZ-38-t0r" id="Oep-jM-30e"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -52,19 +56,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OHs-kM-cja">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" translatesAutoresizingMaskIntoConstraints="NO" id="OHs-kM-cja">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Luc-ch-zOO"/>
                                     <barButtonItem systemItem="camera" id="UMn-7M-U9l">
                                         <connections>
                                             <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="luz-r4-loT"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="mLr-Xg-hfr"/>
                                     <barButtonItem title="Album" id="5sS-8w-ZlP">
                                         <connections>
                                             <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="IOJ-Jn-VCS"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3Tc-pE-hHh"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -98,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="284"/>
+            <point key="canvasLocation" x="546" y="330"/>
         </scene>
     </scenes>
 </document>

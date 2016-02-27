@@ -95,6 +95,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Actions
     
+    @IBAction func returnToDefaultState(sender: AnyObject) {
+        imageView.image = nil
+        topTextField.text = "Top"
+        bottomTextField.text = "Bottom"
+        topTextHasChanged = false
+        bottomTextHasChanged = false
+    }
     @IBAction func pickImageFromAlbum(sender: AnyObject) {
         
         let imagePicker = UIImagePickerController()
