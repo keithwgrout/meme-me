@@ -12,6 +12,9 @@ import UIKit
 
 class SentMemesTableViewController: UIViewController {
     // Properties
+    var memes: [Meme] {
+     return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
+    }
     
     // Methods
     
