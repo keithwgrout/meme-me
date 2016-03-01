@@ -137,8 +137,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    
-    // getting the height of the keyboard
     func getKeyboardHeight(notification: NSNotification) -> CGFloat{
         
         // notifications carry a userInfo dictionary
