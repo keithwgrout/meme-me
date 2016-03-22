@@ -12,6 +12,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 
     // Properties
     
+
+    
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -55,6 +57,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func cancel(sender: AnyObject) {
         restoreDefaultState()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func pickImageFromSource(sender: AnyObject){
@@ -70,7 +73,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = sourceType
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     // sharing the meme with the activity view controller
@@ -115,6 +118,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func textFieldDidBeginEditing(textField: UITextField) {
         clearDefaultText(textField)
     }
+    
     
     // dismiss keyboard when return is pressed
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -175,14 +179,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func save(){
         // create an instance of a Meme
-        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image, memedImage: memeImage)
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, image: imageView.image, memedImage: memeImage)
         
-        // store it in the memes array inside AppDelegate
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-        
+        // store it in the memes array inside AppDelegate        
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
+        
     }
     
     // returns a snapshot of the screen to make the meme

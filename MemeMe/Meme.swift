@@ -20,7 +20,7 @@ struct Meme {
         self.bottomText = bottomText
         self.image = image
         self.memedImage = memedImage
-        print("beep bloop")
+        print("saved")
     }
     
 }
