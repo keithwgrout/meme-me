@@ -20,13 +20,15 @@ class MemeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let object = UIApplication.sharedApplication().delegate
-//        let appDelegate = object as! AppDelegate
-//        
-//        for image in images {
-//            let meme = Meme(topText: "Time For", bottomText: "Food", image: UIImage(named: image), memedImage: UIImage(named: image))
-//            appDelegate.memes.append(meme)
-//        }
+        tableView.rowHeight = 150
+
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        
+        for image in images {
+            let meme = Meme(topText: "Time For", bottomText: "Food", image: UIImage(named: image), memedImage: UIImage(named: image))
+            appDelegate.memes.append(meme)
+        }
         
     }
     
