@@ -170,7 +170,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W5O-C6-3tR">
-                                <rect key="frame" x="20" y="44" width="560" height="512"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="faY-Ft-RCF">
                                 <rect key="frame" x="155" y="471" width="290" height="40"/>
@@ -229,18 +229,18 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="faY-Ft-RCF" firstAttribute="top" secondItem="W5O-C6-3tR" secondAttribute="bottom" constant="-85" id="6Hl-1z-aXh"/>
+                            <constraint firstItem="faY-Ft-RCF" firstAttribute="top" secondItem="W5O-C6-3tR" secondAttribute="bottom" constant="-129" id="6Hl-1z-aXh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="OHs-kM-cja" secondAttribute="trailing" constant="-20" id="An0-QU-jmx"/>
                             <constraint firstItem="faY-Ft-RCF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IDh-Dv-Qbn"/>
-                            <constraint firstItem="OHs-kM-cja" firstAttribute="top" secondItem="W5O-C6-3tR" secondAttribute="bottom" id="NFB-fp-wXa"/>
-                            <constraint firstItem="W5O-C6-3tR" firstAttribute="top" secondItem="Ndo-Ag-Fwq" secondAttribute="bottom" id="U4m-q1-nyW"/>
+                            <constraint firstItem="OHs-kM-cja" firstAttribute="top" secondItem="W5O-C6-3tR" secondAttribute="bottom" constant="-44" id="NFB-fp-wXa"/>
+                            <constraint firstItem="W5O-C6-3tR" firstAttribute="top" secondItem="Ndo-Ag-Fwq" secondAttribute="bottom" constant="-44" id="U4m-q1-nyW"/>
                             <constraint firstItem="Ndo-Ag-Fwq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WRe-7C-Gky"/>
-                            <constraint firstItem="W5O-C6-3tR" firstAttribute="top" secondItem="4wf-jc-485" secondAttribute="bottom" constant="-85" id="XP7-US-KaT"/>
+                            <constraint firstItem="W5O-C6-3tR" firstAttribute="top" secondItem="4wf-jc-485" secondAttribute="bottom" constant="-129" id="XP7-US-KaT"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OHs-kM-cja" secondAttribute="bottom" id="cwn-Jo-x6I"/>
                             <constraint firstItem="Ndo-Ag-Fwq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="dGu-ms-onJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ndo-Ag-Fwq" secondAttribute="trailing" constant="-20" id="ep6-SR-ZVI"/>
-                            <constraint firstItem="W5O-C6-3tR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="qcV-PR-jik"/>
-                            <constraint firstItem="W5O-C6-3tR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="rb8-O5-SCR"/>
+                            <constraint firstItem="W5O-C6-3tR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="20" id="qcV-PR-jik"/>
+                            <constraint firstItem="W5O-C6-3tR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="rb8-O5-SCR"/>
                             <constraint firstItem="OHs-kM-cja" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="t5o-1D-0ch"/>
                             <constraint firstItem="4wf-jc-485" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ven-pc-kjZ"/>
                         </constraints>
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="586"/>
+            <point key="canvasLocation" x="439" y="499"/>
         </scene>
     </scenes>
 </document>
