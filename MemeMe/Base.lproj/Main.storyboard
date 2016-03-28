@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-1810" y="176"/>
         </scene>
-        <!--Item-->
+        <!--Table-->
         <scene sceneID="Pjg-2n-xpr">
             <objects>
                 <navigationController id="N5H-qo-rta" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EJN-QH-CDI"/>
+                    <tabBarItem key="tabBarItem" title="Table" id="EJN-QH-CDI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YI4-00-Hoe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -76,11 +76,11 @@
             </objects>
             <point key="canvasLocation" x="-332" y="-198"/>
         </scene>
-        <!--Item-->
+        <!--Collection-->
         <scene sceneID="jrc-5p-vf0">
             <objects>
                 <navigationController id="GvZ-vF-nHE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EZD-mT-ExX"/>
+                    <tabBarItem key="tabBarItem" title="Collection" id="EZD-mT-ExX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Cw-Tr-ufR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
