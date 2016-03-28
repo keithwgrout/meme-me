@@ -48,14 +48,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         UIApplication.sharedApplication().statusBarHidden = true
         // enable camera if available
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         UIApplication.sharedApplication().statusBarHidden = false
 
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     // Actions
@@ -111,12 +111,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         shareButton.enabled = true
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // imagePickerController Delegate (dismissing the view controller, if the user cancels)
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // clear the default text when user taps the textField
@@ -134,14 +134,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // moves the entire frame up by the height of the keyboard
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     // moves the entire frame down by the height of the keyboard
     func keyboardWillHide(notification: NSNotification){
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y += getKeyboardHeight(notification)
 
         }
     }
@@ -204,10 +204,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // render view to an image
         
         // set the current screen as an "image context"
-        UIGraphicsBeginImageContext(self.view.frame.size)
+        UIGraphicsBeginImageContext(view.frame.size)
         
         // take a snapshot of the screen ('set' the "image context")
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         
         // store the image context, which is a UIImage.
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
