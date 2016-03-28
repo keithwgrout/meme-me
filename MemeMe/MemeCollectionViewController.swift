@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "MemeItem"
 
-class MemeCollectionViewController: UICollectionViewController {
+class MemeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -22,28 +22,35 @@ class MemeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         let space: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        
         
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
 
     }
     
     override func viewWillAppear(animated: Bool) {
         collectionView?.reloadData()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func CreateMeme(sender: AnyObject) {
+        let memeEditorVC = storyboard?.instantiateViewControllerWithIdentifier("MemeVC") as! MemeEditorViewController
+        presentViewController(memeEditorVC, animated: true, completion: nil)
     }
 
-
     // MARK: UICollectionViewDataSource
-
-
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let space: CGFloat = 3.0
+        var dimension: CGFloat
+        
+        
+        dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        return CGSizeMake(dimension, dimension)
+    }
+    
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        collectionView?.performBatchUpdates(nil, completion: nil)
+    }
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
@@ -57,6 +64,17 @@ class MemeCollectionViewController: UICollectionViewController {
         // Configure the cell
     
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let meme = memes[indexPath.row]
+        
+        let memeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("DetailVC") as! MemeDetailVC
+        memeDetailVC.image = meme.memedImage
+        navigationController?.pushViewController(memeDetailVC, animated: true)
+    
+        
     }
 
     

@@ -38,17 +38,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         // set this VC as the delegate for my TextFields
         setTextFieldDelegates()
+        
+        
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        UIApplication.sharedApplication().statusBarHidden = true
         // enable camera if available
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         self.subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
+        UIApplication.sharedApplication().statusBarHidden = false
+
         super.viewWillDisappear(animated)
         self.unsubscribeFromKeyboardNotifications()
     }

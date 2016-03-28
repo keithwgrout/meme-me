@@ -22,13 +22,13 @@ class MemeTableViewController: UITableViewController {
         
         tableView.rowHeight = 150
 
-//        let object = UIApplication.sharedApplication().delegate
-//        let appDelegate = object as! AppDelegate
-//        
-//        for image in images {
-//            let meme = Meme(topText: "Time For", bottomText: "Food", image: UIImage(named: image), memedImage: UIImage(named: image))
-//            appDelegate.memes.append(meme)
-//        }
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        
+        for image in images {
+            let meme = Meme(topText: "Time For", bottomText: "Food", image: UIImage(named: image), memedImage: UIImage(named: image))
+            appDelegate.memes.append(meme)
+        }
         
     }
     
@@ -56,10 +56,12 @@ class MemeTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let detailVC = storyboard?.instantiateViewControllerWithIdentifier("DetailVC") as! MemeDetailVC
-        navigationController?.pushViewController(detailVC, animated: true)
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {        
+        let meme = memes[indexPath.row]
         
+        let memeDetailVC = storyboard?.instantiateViewControllerWithIdentifier("DetailVC") as! MemeDetailVC
+        memeDetailVC.image = meme.memedImage
+        navigationController?.pushViewController(memeDetailVC, animated: true)
     }
 
     @IBAction func CreateMeme(sender: AnyObject) {

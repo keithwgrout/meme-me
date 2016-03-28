@@ -114,12 +114,18 @@
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-gZ-zH1">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AJp-gZ-zH1">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="AJp-gZ-zH1" firstAttribute="top" secondItem="l8r-uP-XPI" secondAttribute="topMargin" constant="-8" id="Hzi-zY-cbT"/>
+                                    <constraint firstItem="AJp-gZ-zH1" firstAttribute="leading" secondItem="l8r-uP-XPI" secondAttribute="leadingMargin" constant="-8" id="Zoo-8q-5EM"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="AJp-gZ-zH1" secondAttribute="trailing" constant="-8" id="hRH-CT-Gpo"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="AJp-gZ-zH1" secondAttribute="bottom" constant="-8" id="qYC-ab-wrP"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="memeImage" destination="AJp-gZ-zH1" id="vcy-ka-Z5J"/>
                                 </connections>
@@ -130,7 +136,13 @@
                             <outlet property="delegate" destination="dRg-n0-gKy" id="Mek-Fv-Hmm"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="j0S-Hq-VZq"/>
+                    <navigationItem key="navigationItem" id="j0S-Hq-VZq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vVX-WW-BiB">
+                            <connections>
+                                <action selector="CreateMeme:" destination="dRg-n0-gKy" id="RuI-3I-1rb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="b5Y-HZ-nQe" id="dGz-Qa-ich"/>
                     </connections>
@@ -150,12 +162,26 @@
                     <view key="view" contentMode="scaleToFill" id="s4B-Td-nCR">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X9v-5Y-ayi">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X9v-5Y-ayi" firstAttribute="top" secondItem="s4B-Td-nCR" secondAttribute="topMargin" id="62c-8G-wmB"/>
+                            <constraint firstItem="X9v-5Y-ayi" firstAttribute="leading" secondItem="s4B-Td-nCR" secondAttribute="leadingMargin" constant="-20" id="ElN-I9-VDJ"/>
+                            <constraint firstItem="ueY-X2-MXF" firstAttribute="top" secondItem="X9v-5Y-ayi" secondAttribute="bottom" id="GxV-LF-hdQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X9v-5Y-ayi" secondAttribute="trailing" constant="-20" id="rjh-3D-C2h"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memeDetailImage" destination="X9v-5Y-ayi" id="o2w-MM-DFq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVD-Ez-HZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="-198"/>
+            <point key="canvasLocation" x="439" y="-192"/>
         </scene>
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -181,23 +207,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-Ag-Fwq">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem id="qVa-KN-MeC">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qxf-en-A4n">
-                                            <connections>
-                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="fu6-Nw-uHY"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="RIg-JH-8jT">
-                                            <connections>
-                                                <action selector="cancel:" destination="BYZ-38-t0r" id="eaQ-pC-EJa"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4wf-jc-485" userLabel="Top Text Field">
                                 <rect key="frame" x="155" y="89" width="290" height="40"/>
                                 <constraints>
@@ -226,6 +235,23 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3Tc-pE-hHh"/>
                                 </items>
                             </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ndo-Ag-Fwq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem id="qVa-KN-MeC">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="qxf-en-A4n">
+                                            <connections>
+                                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="fu6-Nw-uHY"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="RIg-JH-8jT">
+                                            <connections>
+                                                <action selector="cancel:" destination="BYZ-38-t0r" id="eaQ-pC-EJa"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -245,6 +271,7 @@
                             <constraint firstItem="4wf-jc-485" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ven-pc-kjZ"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="bottomTextField" destination="faY-Ft-RCF" id="G4c-cV-y9g"/>
                         <outlet property="cameraButton" destination="UMn-7M-U9l" id="hAB-wk-Mct"/>
@@ -257,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="499"/>
+            <point key="canvasLocation" x="439" y="586"/>
         </scene>
     </scenes>
 </document>
