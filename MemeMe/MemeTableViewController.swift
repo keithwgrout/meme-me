@@ -13,23 +13,12 @@ class MemeTableViewController: UITableViewController {
     var memes: [Meme] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
-    
-    let images = ["breakfast", "lunch", "dinner", "omelette", "breakfast", "lunch", "dinner", "omelette"]
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = 150
 
-        let object = UIApplication.sharedApplication().delegate
-        let appDelegate = object as! AppDelegate
-        
-        for image in images {
-            let meme = Meme(topText: "Time For", bottomText: "Food", image: UIImage(named: image), memedImage: UIImage(named: image))
-            appDelegate.memes.append(meme)
-        }
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -39,7 +28,6 @@ class MemeTableViewController: UITableViewController {
     
 
     // MARK: - Table view data source
-
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -68,16 +56,5 @@ class MemeTableViewController: UITableViewController {
         let memeEditorVC = storyboard?.instantiateViewControllerWithIdentifier("MemeVC") as! MemeEditorViewController
         presentViewController(memeEditorVC, animated: true, completion: nil)
     }
-   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

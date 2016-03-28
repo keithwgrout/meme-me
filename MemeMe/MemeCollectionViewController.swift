@@ -61,7 +61,6 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         let meme = memes[indexPath.row]
     
         cell.memeImage.image = meme.memedImage
-        // Configure the cell
     
         return cell
     }
