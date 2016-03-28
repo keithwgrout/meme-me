@@ -42,8 +42,11 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         let space: CGFloat = 3.0
         var dimension: CGFloat
         
-        
-        dimension = (view.frame.size.width - (2 * space)) / 3.0
+        if view.frame.size.width > view.frame.size.height {
+            dimension = (view.frame.size.width - (4 * space)) / 5.0
+        } else {
+            dimension = (view.frame.size.width - (2 * space)) / 3.0
+        }
         
         return CGSizeMake(dimension, dimension)
     }
