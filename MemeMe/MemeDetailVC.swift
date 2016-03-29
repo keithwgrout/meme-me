@@ -14,7 +14,7 @@ class MemeDetailVC: UIViewController {
     
     var image: UIImage!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidLoad() {
         if let memePic = image {
             memeDetailImage.image = memePic
         } else {
